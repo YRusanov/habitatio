@@ -1,45 +1,43 @@
 backend:
-  name: git-gateway      # используем Netlify Identity + Git Gateway
-  branch: main           # ваша основная ветка
+  name: git-gateway
+  branch: main
+  local_backend: true
 
-media_folder: "uploads"  # куда складывать загруженные картинки
+media_folder: "uploads"
 public_folder: "/uploads"
 
 collections:
   - name: "objects"
     label: "Объекты недвижимости"
-    # вместо folder: … мы указываем файлы-представления
     files:
       - file: "data/objects.json"
         label: "Список объектов"
-        name:  "objects-list"
+        name: "objects-list"
         fields:
-          # корневое поле — массив объектов
           - label: "Объекты"
-            name:  "objects"
+            name: "objects"
             widget: list
-            # каждую сущность внутри списка описываем полями
             fields:
-              - { label: "ID",      name: "id",     widget: "number" }
-              - { label: "Заголовок", name: "title",  widget: "string" }
+              - { label: "ID", name: "id", widget: "number" }
+              - { label: "Заголовок", name: "title", widget: "string" }
               - label: "Статус"
-                name:  "status"
+                name: "status"
                 widget: "select"
                 options:
-                  - { label: "Оренда",  value: "rent"   }
-                  - { label: "Продажа", value: "sale"   }
-                  - { label: "Сдано",   value: "rented" }
-                  - { label: "Продано", value: "sold"   }
+                  - { label: "Оренда", value: "rent" }
+                  - { label: "Продажа", value: "sale" }
+                  - { label: "Сдано", value: "rented" }
+                  - { label: "Продано", value: "sold" }
               - label: "Тип"
-                name:  "type"
+                name: "type"
                 widget: "select"
                 options:
-                  - { label: "Будинок",    value: "house"      }
-                  - { label: "Квартира",   value: "apartment"  }
+                  - { label: "Будинок", value: "house" }
+                  - { label: "Квартира", value: "apartment" }
                   - { label: "Комерційна", value: "commercial" }
-              - { label: "Ціна",      name: "price",  widget: "string" }
+              - { label: "Ціна", name: "price", widget: "string" }
               - label: "Фото"
-                name:  "images"
+                name: "images"
                 widget: list
                 field:
                   { label: "Зображення", name: "url", widget: "image" }
