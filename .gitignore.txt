@@ -1,0 +1,18 @@
+# Ignore Visual Studio temporary files
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+*.tmp
+*.vsidx
+*.vscode/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore build folders
+bin/
+obj/
+build/

@@ -1,0 +1,544 @@
+﻿/* ============================= */
+/* 1. Сброс отступов и базовая настройка */
+/* ============================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================= */
+/* 2. Фон на весь экран, общий лэйаут */
+/* ============================= */
+body {
+    font-family: Arial, sans-serif;
+    background: url("../../uploads/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    /* чтобы футер был всегда внизу */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ============================= */
+/* 3. Глобальный переключатель языков */
+/* ============================= */
+.lang-switcher-global {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+    .lang-switcher-global button {
+        background: #0073e6;
+        border: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 6px 12px;
+        margin-left: 6px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+        .lang-switcher-global button:hover {
+            background: #005bb5;
+        }
+
+/* ============================= */
+/* 4. Основной контейнер страницы */
+/* ============================= */
+.container {
+    width: 95%;
+    max-width: 1600px;
+    margin: 40px auto;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.container1 {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* ============================= */
+/* 5. Герой (фото + заголовок + кнопка) */
+/* ============================= */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+.photo img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+}
+
+.intro h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+/* ============================= */
+/* 6. Блок “Про компанію” */
+/* ============================= */
+.company {
+    width: 90%;
+    max-width: 800px;
+    margin: 60px auto;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.2s;
+}
+
+    .company h2 {
+        font-size: 1.8rem;
+        margin-bottom: 16px;
+    }
+
+    .company p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+/* ============================= */
+/* 7. Блок “Переваги” */
+/* ============================= */
+.advantages {
+    max-width: 500px; /* ограничим по ширине, чтобы было красиво */
+    margin: 0 auto 80px; /* по центру страницы, снизу запас */
+    text-align: left; /* заголовок по центру не трогаем, а список — слева */
+}
+
+    .advantages h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2rem;
+    }
+
+    .advantages ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .advantages li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        font-size: 1.2rem;
+        line-height: 1.4;
+    }
+
+        .advantages li::before {
+            content: "✔️";
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 1.2rem;
+            color: #6a3ea0; /* или тот оттенок, который вы уже используете */
+        }
+
+/* ============================= */
+/* 8. Приветственный / подробный текст */
+
+/* расширенный текст на главной */
+#intro-text {
+    width: 90%;
+    max-width: 800px;
+    margin: 60px auto;
+    text-align: justify;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.2s;
+}
+
+    #intro-text h2 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    #intro-text p {
+        margin-bottom: 12px;
+    }
+
+        #intro-text p:first-of-type {
+            text-indent: 2em;
+        }
+
+/* ============================= */
+/* 9. Кнопки */
+/* ============================= */
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    margin-top: 10px;
+    background: #0073e6;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+}
+
+    .btn:hover {
+        background: #005bb5;
+    }
+
+/* ============================= */
+/* 10. Каталог объектов */
+/* ============================= */
+.catalog-header {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .catalog-header h1 {
+        font-size: 2rem;
+    }
+
+.filters select {
+    margin-left: 10px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* ============================= */
+/* 11. Сетка карточек */
+/* ============================= */
+#cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+/* ============================= */
+/* 12. Карточка объекта */
+/* ============================= */
+.card {
+    width: 320px;
+    height: 270px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* для анимации появления */
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.3s ease;
+}
+
+    .card.visible {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* эффект hover */
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    /* статус “Сдано/Продано” */
+    .card .status {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 320%;
+        height: 60px;
+        line-height: 60px;
+        background: rgba(220, 20, 60, 0.9);
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        transform: translate(-50%, -50%) rotate(-40deg);
+        transform-origin: center center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        z-index: 10;
+    }
+
+    .card .info {
+        padding: 16px;
+    }
+
+        .card .info h3 {
+            font-size: 1.1rem;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+
+        .card .info p {
+            font-size: 0.95rem;
+            line-height: 1.2;
+        }
+
+/* ============================= */
+/* 13. Детальная страница объекта */
+/* ============================= */
+.detail-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.detail-photo-block,
+.detail-info-block {
+    flex: 1 1 400px;
+}
+
+.detail-photo-block {
+    text-align: center;
+}
+
+.detail-photo {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: opacity 0.5s ease;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.arrow-btn {
+    position: absolute;
+    top: 0%;
+    width: 50px; /* широкая полоса */
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+    .arrow-btn.prev {
+        left: 0;
+    }
+
+    .arrow-btn.next {
+        right: 0;
+    }
+
+.detail-info-block {
+    background: rgba(255,255,255,0.85);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.detail-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.detail-status,
+.detail-price,
+.detail-description,
+.detail-contacts {
+    margin: 15px 0;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+/* бейдж в описании */
+.detail-status-badge {
+    display: inline-block;
+    margin-left: 12px;
+    padding: 20px 280px;
+    background: crimson;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 6px;
+    vertical-align: middle;
+}
+
+/* ============================= */
+/* 14. Футер сайта */
+/* ============================= */
+.site-footer-black {
+    background: #000;
+    color: #fff;
+    width: 100%;
+    padding: 40px 0 20px;
+    margin-top: auto; /* прижмёт вниз */
+}
+
+    .site-footer-black .footer-container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+        .site-footer-black .footer-container p {
+            margin: 6px 0;
+        }
+
+    .site-footer-black .rights {
+        margin-top: 20px;
+        font-size: 1.05rem;
+        color: #888;
+    }
+
+/* ============================= */
+/* 15. Анимация fadeInUp */
+/* ============================= */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ============================= */
+/* 16. Адаптивность */
+/* ============================= */
+
+/* ноуты, большие планшеты */
+@media (max-width: 1440px) {
+    #cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero img {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+/* средние экраны */
+@media (max-width: 1080px) {
+    #cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container {
+        padding: 30px 20px;
+    }
+
+    .hero img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .advantages {
+        max-width: 600px;
+    }
+}
+
+/* планшеты и большие телефоны */
+@media (max-width: 760px) {
+    #cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: 90%;
+        padding: 20px 15px;
+    }
+
+    .hero img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .advantages {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    #intro-text, .company {
+        width: 95%;
+        padding: 0 10px;
+    }
+}
+
+/* узкие телефоны */
+@media (max-width: 480px) {
+    .hero img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .intro h2 {
+        font-size: 1.5rem;
+    }
+
+    .advantages h2, .company h2, #intro-text h2 {
+        font-size: 1.4rem;
+    }
+
+    .advantages li, #intro-text p, .intro p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
