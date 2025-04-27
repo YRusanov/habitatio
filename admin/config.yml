@@ -10,41 +10,37 @@ collections:
     label: "Объекты недвижимости"
     folder: "data"
     create: true
-    slug: "{{fields.id}}"
+    slug: "{{id}}"
     extension: "json"
     format: "json"
     fields:
-      - label: "ID"
-        name: "id"
-        widget: "uuid"
-        required: true
-      - label: "Заголовок"
-        name: "title"
-        widget: "string"
-        required: true
-      - label: "Статус"
-        name: "status"
-        widget: "select"
-        options:
-          - { label: "Оренда", value: "rent" }
-          - { label: "Продажа", value: "sale" }
-          - { label: "Сдано", value: "rented" }
-          - { label: "Продано", value: "sold" }
-        required: true
-      - label: "Тип"
-        name: "type"
-        widget: "select"
-        options:
-          - { label: "Будинок", value: "house" }
-          - { label: "Квартира", value: "apartment" }
-          - { label: "Комерційна", value: "commercial" }
-        required: true
-      - label: "Цена"
-        name: "price"
-        widget: "number"
-        value_type: "float"
-        step: 0.01
-        required: true
+      - { label: "ID", name: "id", widget: "number" }
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { 
+          label: "Статус", 
+          name: "status", 
+          widget: "select", 
+          options:
+            - { label: "Оренда", value: "rent" }
+            - { label: "Продажа", value: "sale" }
+            - { label: "Сдано", value: "rented" }
+            - { label: "Продано", value: "sold" }
+        }
+      - { 
+          label: "Тип", 
+          name: "type", 
+          widget: "select", 
+          options:
+            - { label: "Будинок", value: "house" }
+            - { label: "Квартира", value: "apartment" }
+            - { label: "Комерційна", value: "commercial" }
+        }
+      - { 
+          label: "Ціна", 
+          name: "price", 
+          widget: "string",
+          pattern: ['^[0-9]+([.,][0-9]+)?$', "Только цифры или дробные значения (например, 1000 или 1000.50)"]
+        }
       - label: "Фото (список)"
         name: "images"
         widget: "list"
