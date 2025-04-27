@@ -14,8 +14,8 @@ collections:
     extension: "json"
     format: "json"
     fields:
-      - { label: "ID", name: "id", widget: "number" }
-      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "ID", name: "id", widget: "number", required: false }
+      - { label: "Заголовок", name: "title", widget: "string", required: true }
       - label: "Статус"
         name: "status"
         widget: "select"
@@ -24,6 +24,7 @@ collections:
           - { label: "Продажа", value: "sale" }
           - { label: "Сдано", value: "rented" }
           - { label: "Продано", value: "sold" }
+        required: true
       - label: "Тип"
         name: "type"
         widget: "select"
@@ -31,12 +32,10 @@ collections:
           - { label: "Будинок", value: "house" }
           - { label: "Квартира", value: "apartment" }
           - { label: "Комерційна", value: "commercial" }
-      - label: "Ціна"
-        name: "price"
-        widget: "number"
-        value_type: "float"
+        required: true
+      - { label: "Цена", name: "price", widget: "number", required: true, min: 0 }
       - label: "Фото (список)"
         name: "images"
         widget: "list"
         field:
-          { label: "Фото об'єкта", name: "image", widget: "image" }
+          { label: "Фото объекта", name: "image", widget: "image" }
