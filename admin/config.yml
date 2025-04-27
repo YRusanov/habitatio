@@ -16,25 +16,25 @@ collections:
     fields:
       - { label: "ID", name: "id", widget: "number" }
       - { label: "Заголовок", name: "title", widget: "string" }
-      - { 
-          label: "Статус", 
-          name: "status", 
-          widget: "select", 
-          options:
-            - { label: "Оренда", value: "rent" },
-            - { label: "Продажа", value: "sale" },
-            - { label: "Сдано", value: "rented" },
-            - { label: "Продано", value: "sold" }
-        }
-      - { 
-          label: "Тип", 
-          name: "type", 
-          widget: "select", 
-          options:
-            - { label: "Будинок", value: "house" },
-            - { label: "Квартира", value: "apartment" },
-            - { label: "Комерційна", value: "commercial" }
-        }
+      - 
+      - label: "Статус"
+        name: "status"
+        widget: "select"
+        options:
+          - { label: "Оренда", value: "rent" }
+          - { label: "Продажа", value: "sale" }
+          - { label: "Сдано", value: "rented" }
+          - { label: "Продано", value: "sold" }
+        
+      -
+      - label: "Тип"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Будинок", value: "house" }
+          - { label: "Квартира", value: "apartment" }
+          - { label: "Комерційна", value: "commercial" }
+        
       - { 
           label: "Ціна", 
           name: "price", 
