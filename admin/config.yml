@@ -3,16 +3,16 @@ backend:
   branch: main
   local_backend: true
 
-media_folder: "uploads"
-public_folder: "/uploads"
+media_folder: "uploads"  # куда сохраняются загружаемые изображения
+public_folder: "/uploads"  # как к ним обращаться на сайте
 
 collections:
   - name: "objects"
     label: "Объекты недвижимости"
-    folder: "data"
-    create: true
-    slug: "{{id}}"
-    extension: "yml"
+    folder: "data"   # будет создавать отдельные файлы в папке data
+    create: true     # разрешить создавать новые записи через админку
+    slug: "{{id}}"   # название файла будет равно значению ID
+    extension: "yml" # формат файлов YAML
     format: "yaml"
     fields:
       - { label: "ID", name: "id", widget: "number", required: false }
@@ -26,6 +26,8 @@ collections:
           - { label: "Сдано", value: "rented" }
           - { label: "Продано", value: "sold" }
         required: true
+        multiple: false
+        allow_add: false
       - label: "Тип"
         name: "type"
         widget: "select"
@@ -34,6 +36,8 @@ collections:
           - { label: "Квартира", value: "apartment" }
           - { label: "Комерційна", value: "commercial" }
         required: true
+        multiple: false
+        allow_add: false
       - { label: "Цена", name: "price", widget: "number", required: true, min: 0 }
       - label: "Фото (список)"
         name: "images"
