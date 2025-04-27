@@ -8,16 +8,22 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <title>CMS | Habitatio</title>
 
+    <!-- Скрипты -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script src="https://unpkg.com/netlify-cms@2.10.192/dist/netlify-cms.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/netlify-cms@2.10.192/dist/netlify-cms.js"></script>
   </head>
 
   <body>
+    <!-- Обязательно нужен элемент, куда CMS будет монтироваться -->
     <script>
-      window.addEventListener('DOMContentLoaded', function () {
-        CMS.init({
-          config: '/admin/config.yml'
-        });
+      window.addEventListener('load', function () {
+        if (typeof CMS !== 'undefined') {
+          CMS.init({
+            config: '/admin/config.yml'
+          });
+        } else {
+          console.error("Netlify CMS не загружен");
+        }
       });
     </script>
   </body>
