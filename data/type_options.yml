@@ -1,7 +1,0 @@
-options:
-  - label: "Будинок"
-    value: "house"
-  - label: "Квартира"
-    value: "apartment"
-  - label: "Комерційна"
-    value: "commercial"

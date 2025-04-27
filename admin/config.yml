@@ -7,37 +7,9 @@ media_folder: "uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "status_options"
-    label: "Статусы недвижимости"
-    files:
-      - file: "data/status_options.yml"
-        label: "Статусы"
-        name: "status_options"
-        fields:
-          - label: "Статусы"
-            name: "options"
-            widget: list
-            fields:
-              - { label: "Название", name: "label", widget: "string" }
-              - { label: "Значение", name: "value", widget: "string" }
-
-  - name: "type_options"
-    label: "Типы недвижимости"
-    files:
-      - file: "data/type_options.yml"
-        label: "Типы"
-        name: "type_options"
-        fields:
-          - label: "Типы"
-            name: "options"
-            widget: list
-            fields:
-              - { label: "Название", name: "label", widget: "string" }
-              - { label: "Значение", name: "value", widget: "string" }
-
   - name: "objects"
     label: "Объекты недвижимости"
-    folder: "data/objects"
+    folder: "data"
     create: true
     slug: "{{id}}"
     extension: "yml"
@@ -47,27 +19,30 @@ collections:
       - { label: "Заголовок", name: "title", widget: "string", required: true }
       - label: "Статус"
         name: "status"
-        widget: "relation"
-        collection: "status_options"
-        file: "data/status_options.yml"
-        search_fields: ["options.label"]
-        value_field: "options.value"
-        display_fields: ["options.label"]
+        widget: "select"
+        options:
+          - { label: "Оренда", value: "rent" }
+          - { label: "Продажа", value: "sale" }
+          - { label: "Сдано", value: "rented" }
+          - { label: "Продано", value: "sold" }
         required: true
+        multiple: false
+        allow_add: false
       - label: "Тип"
         name: "type"
-        widget: "relation"
-        collection: "type_options"
-        file: "data/type_options.yml"
-        search_fields: ["options.label"]
-        value_field: "options.value"
-        display_fields: ["options.label"]
+        widget: "select"
+        options:
+          - { label: "Будинок", value: "house" }
+          - { label: "Квартира", value: "apartment" }
+          - { label: "Комерційна", value: "commercial" }
         required: true
+        multiple: false
+        allow_add: false
       - { label: "Цена", name: "price", widget: "number", required: true, min: 0 }
       - label: "Фото (список)"
         name: "images"
-        widget: list
+        widget: "list"
         field:
-          label: "Фото"
-          name: ""
-          widget: image
+          label: "Фото объекта"
+          name: "image"
+          widget: "image"
