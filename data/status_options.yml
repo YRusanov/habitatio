@@ -1,0 +1,9 @@
+options:
+  - label: "Оренда"
+    value: "rent"
+  - label: "Продажа"
+    value: "sale"
+  - label: "Сдано"
+    value: "rented"
+  - label: "Продано"
+    value: "sold"
