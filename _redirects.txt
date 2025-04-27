@@ -1,0 +1,11 @@
+# Перенаправление старой страницы на новую
+/old-page     /new-page    301
+
+# Кастомная 404 страница
+# /*            /index.html  200
+
+# Редирект с WWW на без WWW (или наоборот)
+https://www.habitatio.com/*   https://habitatio.com/:splat   301
+
+# Редирект с HTTP на HTTPS (Netlify делает это автоматически, но можно явно прописать)
+http://habitatio.com/*   https://habitatio.com/:splat   301
