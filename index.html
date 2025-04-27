@@ -15,13 +15,16 @@
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
     if (window.netlifyIdentity) {
-      // инициализируем виджет
+      // 1) инициализуем Netlify Identity
       window.netlifyIdentity.init();
-
-      // при клике на любую кнопку .btn-signup открывать окно регистрации
-      document.querySelectorAll('.btn-signup').forEach(btn =>
-        btn.addEventListener('click', () => window.netlifyIdentity.open('signup'))
-      );
+  
+      // 2) вешаем обработчик на все signup-кнопки
+      document.querySelectorAll('.btn-signup').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.preventDefault();                // отменяем переход по ссылке
+          window.netlifyIdentity.open('signup'); // открываем виджет
+        });
+      });
     }
   </script>
 
