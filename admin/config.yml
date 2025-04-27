@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+  local_backend: true
 
 media_folder: "uploads"
 public_folder: "/uploads"
@@ -11,8 +12,8 @@ collections:
     folder: "data"
     create: true
     slug: "{{id}}"
-    extension: "json"
-    format: "json"
+    extension: "yml"
+    format: "yaml"
     fields:
       - { label: "ID", name: "id", widget: "number", required: false }
       - { label: "Заголовок", name: "title", widget: "string", required: true }
@@ -36,6 +37,8 @@ collections:
       - { label: "Цена", name: "price", widget: "number", required: true, min: 0 }
       - label: "Фото (список)"
         name: "images"
-        widget: "list"
+        widget: list
         field:
-          { label: "Фото объекта", name: "image", widget: "image" }
+          label: "Фото"
+          name: ""
+          widget: image
