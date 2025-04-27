@@ -1,42 +1,45 @@
 backend:
-  name: git-gateway      # авторизация через Netlify Identity + Git Gateway
-  branch: main           # ветка, в которую будут пушиться изменения
+  name: git-gateway      # используем Netlify Identity + Git Gateway
+  branch: main           # ваша основная ветка
 
-media_folder: "uploads"  # куда сохранять загруженные картинки
+media_folder: "uploads"  # куда складывать загруженные картинки
 public_folder: "/uploads"
 
-# коллекция «Объекты»
 collections:
   - name: "objects"
     label: "Объекты недвижимости"
-    folder: "data"      # папка, где лежит objects.json
-    create: true
-    slug: "{{id}}"
-    extension: "json"
-    format: "json"
-    # если вы хотите каждый объект в своём файле, можно указать folder: "data/objects"
-    # тогда первый сегмент slug-а будет именем файла
-    fields:
-      - { label: "ID",      name: "id",     widget: "number" }
-      - { label: "Заголовок", name: "title",  widget: "string" }
-      - label: "Статус"
-        name: "status"
-        widget: "select"
-        options:
-          - { label: "Оренда",      value: "rent" }
-          - { label: "Продажа",     value: "sale" }
-          - { label: "Сдано",       value: "rented" }
-          - { label: "Продано",     value: "sold" }
-      - label: "Тип"
-        name: "type"
-        widget: "select"
-        options:
-          - { label: "Будинок",         value: "house" }
-          - { label: "Квартира",        value: "apartment" }
-          - { label: "Комерційна",      value: "commercial" }
-      - { label: "Ціна",     name: "price",  widget: "string" }
-      - label: "Фото (список)"
-        name: "images"
-        widget: "list"
-        field:
-          { label: "URL об'єкта", name: "image", widget: "image" }
+    # вместо folder: … мы указываем файлы-представления
+    files:
+      - file: "data/objects.json"
+        label: "Список объектов"
+        name:  "objects-list"
+        fields:
+          # корневое поле — массив объектов
+          - label: "Объекты"
+            name:  "objects"
+            widget: list
+            # каждую сущность внутри списка описываем полями
+            fields:
+              - { label: "ID",      name: "id",     widget: "number" }
+              - { label: "Заголовок", name: "title",  widget: "string" }
+              - label: "Статус"
+                name:  "status"
+                widget: "select"
+                options:
+                  - { label: "Оренда",  value: "rent"   }
+                  - { label: "Продажа", value: "sale"   }
+                  - { label: "Сдано",   value: "rented" }
+                  - { label: "Продано", value: "sold"   }
+              - label: "Тип"
+                name:  "type"
+                widget: "select"
+                options:
+                  - { label: "Будинок",    value: "house"      }
+                  - { label: "Квартира",   value: "apartment"  }
+                  - { label: "Комерційна", value: "commercial" }
+              - { label: "Ціна",      name: "price",  widget: "string" }
+              - label: "Фото"
+                name:  "images"
+                widget: list
+                field:
+                  { label: "Зображення", name: "url", widget: "image" }
