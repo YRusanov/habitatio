@@ -11,6 +11,20 @@
     <title>Деталі об’єкта – Habitatio</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      // инициализируем виджет
+      window.netlifyIdentity.init();
+
+      // при клике на любую кнопку .btn-signup открывать окно регистрации
+      document.querySelectorAll('.btn-signup').forEach(btn =>
+        btn.addEventListener('click', () => window.netlifyIdentity.open('signup'))
+      );
+    }
+  </script>
+
 <body>
     <!-- Глобальний переключатель мов
     <div class="lang-switcher-global">

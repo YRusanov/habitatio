@@ -11,6 +11,20 @@
     <title>Habitatio – Агентство нерухомості</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      // инициализируем виджет
+      window.netlifyIdentity.init();
+
+      // при клике на любую кнопку .btn-signup открывать окно регистрации
+      document.querySelectorAll('.btn-signup').forEach(btn =>
+        btn.addEventListener('click', () => window.netlifyIdentity.open('signup'))
+      );
+    }
+  </script>
+
 <body>
 
     <!-- Глобальний переключатель мов
@@ -18,6 +32,9 @@
         <button data-lang="uk">UA</button>
         <button data-lang="en">EN</button>
     </div> -->
+    <div class="lang-switcher-global">
+    <a href="#" class="btn btn-signup">Зареєструватися</a>
+</div>
 
     <div class="container1">
 
