@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="description" content="Habitatio — агентство нерухомості. Пошук та продаж житла у Києві. Надійність, досвід, професіоналізм.">
     <meta name="keywords" content="нерухомість Київ, купити квартиру, продаж будинків, агентство нерухомості Habitatio">
     <meta name="author" content="Habitatio">
     <link rel="icon" type="image/png" href="/favicon.png">
     <title>CMS | Habitatio</title>
-
-    <!-- Скрипты -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/netlify-cms@2.10.192/dist/netlify-cms.js"></script>
-  </head>
+    <script src="https://unpkg.com/netlify-cms@2.10.192/dist/netlify-cms.min.js"></script>
+</head>
+<body>
 
-  <body>
-    <!-- Обязательно нужен элемент, куда CMS будет монтироваться -->
-    <script>
-      window.addEventListener('load', function () {
-        if (typeof CMS !== 'undefined') {
-          CMS.init({
-            config: '/admin/config.yml'
-          });
-        } else {
-          console.error("Netlify CMS не загружен");
-        }
-      });
-    </script>
-  </body>
+<!-- ОБЯЗАТЕЛЬНО добавляем контейнер для CMS -->
+<div id="nc-root"></div>
+
+<script>
+  CMS.init({
+    config: '/admin/config.yml'
+  });
+</script>
+
+</body>
 </html>
