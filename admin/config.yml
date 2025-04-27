@@ -1,7 +1,6 @@
 backend:
   name: git-gateway
   branch: main
-  local_backend: true
 
 media_folder: "uploads"
 public_folder: "/uploads"
@@ -9,35 +8,45 @@ public_folder: "/uploads"
 collections:
   - name: "objects"
     label: "Объекты недвижимости"
-    files:
-      - file: "data/objects.json"
-        label: "Список объектов"
-        name: "objects-list"
-        fields:
-          - label: "Объекты"
-            name: "objects"
-            widget: list
-            fields:
-              - { label: "ID", name: "id", widget: "number" }
-              - { label: "Заголовок", name: "title", widget: "string" }
-              - label: "Статус"
-                name: "status"
-                widget: "select"
-                options:
-                  - { label: "Оренда", value: "rent" }
-                  - { label: "Продажа", value: "sale" }
-                  - { label: "Сдано", value: "rented" }
-                  - { label: "Продано", value: "sold" }
-              - label: "Тип"
-                name: "type"
-                widget: "select"
-                options:
-                  - { label: "Будинок", value: "house" }
-                  - { label: "Квартира", value: "apartment" }
-                  - { label: "Комерційна", value: "commercial" }
-              - { label: "Ціна", name: "price", widget: "string" }
-              - label: "Фото"
-                name: "images"
-                widget: list
-                field:
-                  { label: "Зображення", name: "url", widget: "image" }
+    folder: "data"
+    create: true
+    slug: "{{fields.id}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - label: "ID"
+        name: "id"
+        widget: "uuid"
+        required: true
+      - label: "Заголовок"
+        name: "title"
+        widget: "string"
+        required: true
+      - label: "Статус"
+        name: "status"
+        widget: "select"
+        options:
+          - { label: "Оренда", value: "rent" }
+          - { label: "Продажа", value: "sale" }
+          - { label: "Сдано", value: "rented" }
+          - { label: "Продано", value: "sold" }
+        required: true
+      - label: "Тип"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Будинок", value: "house" }
+          - { label: "Квартира", value: "apartment" }
+          - { label: "Комерційна", value: "commercial" }
+        required: true
+      - label: "Цена"
+        name: "price"
+        widget: "number"
+        value_type: "float"
+        step: 0.01
+        required: true
+      - label: "Фото (список)"
+        name: "images"
+        widget: "list"
+        field:
+          { label: "Фото объекта", name: "image", widget: "image" }
