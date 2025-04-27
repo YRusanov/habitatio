@@ -21,9 +21,9 @@ collections:
           name: "status", 
           widget: "select", 
           options:
-            - { label: "Оренда", value: "rent" }
-            - { label: "Продажа", value: "sale" }
-            - { label: "Сдано", value: "rented" }
+            - { label: "Оренда", value: "rent" },
+            - { label: "Продажа", value: "sale" },
+            - { label: "Сдано", value: "rented" },
             - { label: "Продано", value: "sold" }
         }
       - { 
@@ -31,8 +31,8 @@ collections:
           name: "type", 
           widget: "select", 
           options:
-            - { label: "Будинок", value: "house" }
-            - { label: "Квартира", value: "apartment" }
+            - { label: "Будинок", value: "house" },
+            - { label: "Квартира", value: "apartment" },
             - { label: "Комерційна", value: "commercial" }
         }
       - { 
