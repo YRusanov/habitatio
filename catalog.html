@@ -11,23 +11,6 @@
   <title>Каталог об’єктів – Habitatio</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-  <!-- Netlify Identity Widget -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    if (window.netlifyIdentity) {
-      // 1) инициализуем Netlify Identity
-      window.netlifyIdentity.init();
-  
-      // 2) вешаем обработчик на все signup-кнопки
-      document.querySelectorAll('.btn-signup').forEach(btn => {
-        btn.addEventListener('click', e => {
-          e.preventDefault();                // отменяем переход по ссылке
-          window.netlifyIdentity.open('signup'); // открываем виджет
-        });
-      });
-    }
-  </script>
-
 <body>
     <!-- <div class="lang-switcher-global">
   <button data-lang="uk">UA</button>
