@@ -63,7 +63,7 @@ body {
     position: relative;
 }
 
-.container1 {
+.hero-section {
     width: 100%;
     max-width: 900px;
     margin: 40px auto;
@@ -204,8 +204,11 @@ body {
 /* ============================= */
 /* 9. Кнопки */
 /* ============================= */
+/* Базовый стиль всех кнопок */
 .btn {
-    display: inline-block;
+    display: inline-flex; /* Используем flex для правильного размещения текста и иконок */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    gap: 8px; /* Отступ между иконкой и текстом */
     padding: 14px 28px;
     margin-top: 10px;
     background: #0073e6;
@@ -213,12 +216,25 @@ body {
     text-decoration: none;
     border-radius: 6px;
     font-size: 1.1rem;
-    transition: background 0.2s;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.2s; /* Плавная анимация фона и небольшого движения */
+    border: none;
+    cursor: pointer;
 }
 
-    .btn:hover {
-        background: #005bb5;
-    }
+/* Эффект наведения на кнопку */
+.btn:hover {
+    background: #005bb5;
+    transform: translateY(-2px); /* Лёгкое поднятие кнопки вверх при наведении */
+}
+
+/* Стили для SVG-иконок внутри кнопок */
+.btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor; /* Наследование цвета текста */
+}
+
 
 /* ============================= */
 /* 10. Каталог объектов */

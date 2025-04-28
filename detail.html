@@ -1,50 +1,139 @@
 ﻿<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta name="description" content="Habitatio — агентство нерухомості. Пошук та продаж житла у Києві. Надійність, досвід, професіоналізм.">
-<meta name="keywords" content="нерухомість Київ, купити квартиру, продаж будинків, агентство нерухомості Habitatio">
-<meta name="author" content="Habitatio">
-<link rel="icon" type="image/png" href="/favicon.png">
+<!-- Указание типа документа HTML5. Это нужно браузеру для правильной интерпретации кода страницы. -->
 
+<html lang="uk">
+<!-- Открытие корневого элемента страницы. Атрибут lang="uk" указывает, что основной язык содержимого — украинский. Важно для SEO, доступности и корректной индексации. -->
+
+<head>
+    <!-- Секция <head> содержит метаинформацию о странице. Здесь прописываются SEO-настройки, ссылки на стили, фавиконки и метатеги для соцсетей. -->
+
+    <!-- Базовые метатеги SEO -->
     <meta charset="UTF-8">
+    <!-- Установка кодировки документа на UTF-8 для корректного отображения всех символов. -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Настройка адаптивного отображения сайта на мобильных устройствах. Обязательный тег для современной верстки. -->
+
+    <meta name="description"
+        content="Habitatio — детальна інформація про об'єкт нерухомості. Оренда та продаж квартир у Києві.">
+    <!-- Краткое описание страницы для поисковых систем. Отображается в результатах поиска и при репостах. -->
+
+    <meta name="keywords"
+        content="деталі об'єкта, нерухомість Київ, купити квартиру, оренда будинків, агентство нерухомості Habitatio">
+    <!-- Ключевые слова для поисковых систем. Сейчас используются минимально, но могут помогать дополнительной индексации. -->
+
+    <meta name="author" content="Habitatio">
+    <!-- Указание автора или владельца сайта. -->
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <!-- Подключение иконки сайта (отображается на вкладке браузера и в избранных закладках). -->
+
+    <!-- Заголовок страницы -->
     <title>Деталі об’єкта – Habitatio</title>
+    <!-- Заголовок страницы, который отображается в браузере и в поисковой выдаче. Важно для SEO. -->
+
+    <!-- Open Graph метатеги для соцсетей (Facebook, Instagram, Telegram, Viber) -->
+    <meta property="og:title" content="Деталі об’єкта – Habitatio">
+    <!-- Заголовок объекта для предпросмотра в социальных сетях. -->
+
+    <meta property="og:description"
+        content="Перегляньте детальну інформацію про об'єкт нерухомості від Habitatio. Надійність, досвід, професіоналізм.">
+    <!-- Описание объекта для предпросмотра в социальных сетях. -->
+
+    <meta property="og:image" content="/preview.jpg">
+    <!-- Ссылка на изображение для предпросмотра. Изображение должно быть минимум 1200x630 пикселей для корректного отображения в соцсетях. -->
+
+    <!--
+    <meta property="og:url" content="https://habitatio-site.netlify.app/detail.html">
+     Каноническая ссылка на страницу. Нужно указывать актуальный URL, чтобы соцсети и поисковые системы правильно распознавали адрес страницы. -->
+
+    <meta property="og:type" content="website">
+    <!-- Тип объекта для Open Graph. Для сайтов всегда указывается "website". -->
+
+    <!-- Twitter Card метатеги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Формат карточки Twitter — большая красивая картинка. -->
+
+    <meta name="twitter:title" content="Деталі об’єкта – Habitatio">
+    <!-- Заголовок для предпросмотра в Twitter. -->
+
+    <meta name="twitter:description"
+        content="Перегляньте детальну інформацію про об'єкт нерухомості від Habitatio. Купівля, оренда квартир у Києві.">
+    <!-- Описание для предпросмотра в Twitter. -->
+
+    <meta name="twitter:image" content="/preview.jpg">
+    <!-- Ссылка на изображение для предпросмотра в Twitter. Используется то же изображение, что и для Open Graph. -->
+
+    <!-- Подключение основного файла таблицы стилей -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Основной CSS-файл для оформления внешнего вида страницы. -->
 </head>
 
 <body>
-    <!-- Глобальний переключатель мов
+    <!-- Открытие тела документа -->
+
+    <!-- Глобальный переключатель языков (на будущее) -->
+    <!-- 
     <div class="lang-switcher-global">
         <button data-lang="uk">UA</button>
         <button data-lang="en">EN</button>
-    </div> -->
+    </div>
+    -->
 
     <div class="container">
-        <!-- Блок кнопок -->
+        <!-- Основной контейнер страницы -->
+
+        <!-- Блок навигационных кнопок -->
         <div class="navigation-buttons">
-            <button class="btn" onclick="window.history.back()">&#8592; Назад до каталогу</button>
-            <a href="index.html" class="btn">Головна сторінка</a>
+            <!-- Кнопка возврата: добавлена проверка истории переходов -->
+            <button class="btn" id="btn-back">
+                <!-- Иконка стрелки влево (SVG) + текст кнопки -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M5.854 4.146a.5.5 0 0 1 0 .708L2.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0z" />
+                    <path fill-rule="evenodd" d="M13.5 8a.5.5 0 0 1-.5.5H3a.5.5 0 0 1 0-1h10a.5.5 0 0 1 .5.5z" />
+                </svg>
+                Назад до каталогу
+            </button>
+
+            <!-- Ссылка на главную страницу с иконкой -->
+            <a href="index.html" class="btn">
+                <!-- Иконка домика -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 .5l6 6V15H2V6.5l6-6zM1 7.707V16h5v-5h4v5h5V7.707l-7-7-7 7z" />
+                </svg>
+                Головна сторінка
+            </a>
         </div>
 
-        <!-- Контейнер для деталей -->
-        <section id="detail-container" class="detail-content"></section>
+        <!-- Контейнер для деталей объекта недвижимости -->
+        <section id="detail-container" class="detail-content">
+
+        </section>
+
     </div>
+    <!-- Закрытие основного контейнера -->
 
-    <!-- Чорна підвалина з контактами -->
-    <footer class="site-footer-black">
-        <div class="footer-container">
-            <p>Контакти: Habitatio – агентство нерухомості</p>
-            <p>ФОП Русанова Марина Миколаївна</p>
-            <p>ІПН: [номер ІПН після реєстрації]</p>
-            <p>ЄДРПОУ: [номер запису в реєстрі після реєстрації]</p>
-            <p>Телефон: [номер телефону]</p>
-            <p>E-mail: [поштова скринька]</p>
-            <p>Вебсайт: [домен сайту]</p>
-            <p class="rights">© 2025 Habitatio – агентство нерухомості. ФОП Русанова Марина Миколаївна. Всі права захищені.</p>
-        </div>
+    <!-- Скрипт обработки кнопки "Назад" и загрузки контента -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const backButton = document.getElementById('btn-back');
 
-    </footer>
+            backButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Проверяем длину истории браузера
+                if (window.history.length > 1) {
+                    window.history.back(); // Есть история переходов — возвращаем назад
+                } else {
+                    window.location.href = "catalog.html"; // Нет истории — переходим к каталогу
+                }
+            });
+        });
+    </script>
 
     <script src="assets/js/main.js"></script>
 </body>
+<!-- Закрытие тела документа -->
+
+
 </html>

@@ -142,8 +142,8 @@
                   email@example.com
                 </p>
                 <div style="text-align:center; margin-top:20px;">
-                  <button class="btn" onclick="history.back()">← Назад</button>
-                  <a href="index.html" class="btn">Главная</a>
+                  <button class="btn" onclick="history.back()">← Назад до каталогу</button>
+                  <a href="index.html" class="btn">Головна сторінка</a>
                 </div>
               </div>
             </div>`;
