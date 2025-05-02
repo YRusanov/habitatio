@@ -235,28 +235,106 @@ body {
     fill: currentColor; /* Наследование цвета текста */
 }
 
+/*  Кнопка возврата на главную */
+.back-to-main {
+    text-align: center;
+    margin: 30px 0;
+  }
 
 /* ============================= */
 /* 10. Каталог объектов */
 /* ============================= */
+
+/* 📌 Заголовок и панель фильтров */
 .catalog-header {
     width: 100%;
     margin-bottom: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Заголовок слева, фильтры справа */
     align-items: center;
+    flex-wrap: wrap; /* Адаптив: фильтры вниз на узких экранах */
 }
 
-    .catalog-header h1 {
-        font-size: 2rem;
+/* 🧭 Заголовок каталога */
+.catalog-header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* 📦 Контейнер с фильтрами */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* 📱 Мобильная адаптация: фильтры в колонку */
+@media (max-width: 600px) {
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-.filters select {
-    margin-left: 10px;
-    padding: 6px 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    .styled-select,
+    .reset-btn {
+        width: 100%;
+    }
 }
+
+/* 🔘 Унифицированный стиль для .select и .reset-btn */
+.styled-select,
+.reset-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    margin-top: 10px;
+    background: #0073e6;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s, transform 0.2s;
+    width: 180px;                /* Совпадает с .btn */
+    height: 48px;
+}
+
+/* 🖱️ Наведение: затемнение и плавное поднятие */
+.styled-select:hover,
+.reset-btn:hover {
+    background: #005bb5;
+    transform: translateY(-2px);
+}
+
+/* 🎯 Центрирование текста в поле <select> */
+.styled-select {
+    text-align: center;         /* Центрирует текст */
+    text-align-last: center;    /* Центрирует выбранный пункт */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* 🎨 Кастомная SVG-стрелка */
+    background-image: url("data:image/svg+xml,%3Csvg fill='white' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;  /* Стрелка сдвинута внутрь */
+    padding-right: 42px;                     /* Резервируем место под стрелку */
+}
+
+/* 🌐 Центрирование текста в списке */
+.styled-select option {
+    text-align: center;         /* Для Chrome, Edge */
+    direction: rtl;             /* Хак для Firefox */
+}
+
+/* 🧪 Убираем серый фон у выбранного пункта в Firefox */
+.styled-select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #fff;
+}
+
 
 /* ============================= */
 /* 11. Сетка карточек */

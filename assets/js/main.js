@@ -142,8 +142,22 @@
                   email@example.com
                 </p>
                 <div style="text-align:center; margin-top:20px;">
-                  <button class="btn" onclick="history.back()">← Назад до каталогу</button>
-                  <a href="index.html" class="btn">Головна сторінка</a>
+            <button class="btn" id="btn-back">
+                <!-- Иконка стрелки влево (SVG) + текст кнопки -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M5.854 4.146a.5.5 0 0 1 0 .708L2.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0z" />
+                    <path fill-rule="evenodd" d="M13.5 8a.5.5 0 0 1-.5.5H3a.5.5 0 0 1 0-1h10a.5.5 0 0 1 .5.5z" />
+                </svg>
+                Назад до каталогу
+            </button>
+            <a href="index.html" class="btn">
+                <!-- Иконка домика -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 .5l6 6V15H2V6.5l6-6zM1 7.707V16h5v-5h4v5h5V7.707l-7-7-7 7z" />
+                </svg>
+                Головна сторінка
+            </a>
                 </div>
               </div>
             </div>`;
@@ -172,5 +186,25 @@
             }
         }
     }
+
+    // 🧠 Обработчик сброса фильтров
+document.addEventListener("DOMContentLoaded", () => {
+    const statusFilter = document.getElementById("filter-status");
+    const typeFilter = document.getElementById("filter-type");
+    const resetBtn = document.getElementById("reset-filters");
+  
+    // При нажатии на кнопку сброса — возвращаем значения "all"
+    if (resetBtn) {
+      resetBtn.addEventListener("click", () => {
+        statusFilter.value = "all";
+        typeFilter.value = "all";
+  
+        // Генерируем событие изменения, чтобы перерендерить карточки
+        statusFilter.dispatchEvent(new Event("change"));
+        typeFilter.dispatchEvent(new Event("change"));
+      });
+    }
+  });
+  
 
 })();
