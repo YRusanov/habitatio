@@ -1,0 +1,25 @@
+{
+    "catalogTitle": "Property Catalog",
+    "allStatuses": "All statuses",
+    "rent": "For Rent",
+    "sale": "For Sale",
+    "rented": "Rented",
+    "sold": "Sold",
+    "reset": "Reset",
+    "allTypes": "All types",
+    "house": "House",
+    "apartment": "Apartment",
+    "commercial": "Commercial",
+    "homePage": "Home Page",
+    "backToCatalog": "Back to catalog",
+    
+    "price": "Price",
+    "notFound": "Object not found.",
+    "contacts": "Agent contacts",
+    "contactsHeader": "Contacts",
+    "owner": "Individual Entrepreneur Maryna Rusanova",
+    "phone": "Phone: +380 67 285 50 96",
+    "email": "E-mail: m.rusanova@gmail.com",
+    "website": "Website: https://habitatio.netlify.app",
+    "rights": "© 2025 Habitatio – Real Estate Agency. All rights reserved."
+}
